@@ -11,7 +11,6 @@ const generateQuestions = (audience) =>
                 : "Apa saja hak saya sebagai peserta",
     }));
 
-const [range, setRange] = useState("7 hari terakhir");
 const rangeOptions = [
     "24 jam terakhir",
     "7 hari terakhir",
@@ -22,7 +21,10 @@ const rangeOptions = [
 const PAGE_SIZE = 20;
 
 export default function NaskahBot() {
-
+    // ----------------------------------------------------
+    // PINDAHKAN useState KE DALAM FUNGSI KOMPONEN DI SINI:
+    // ----------------------------------------------------
+    const [range, setRange] = useState("7 hari terakhir");
 
     const { audience } = useParams();
     const ALL_QUESTIONS = generateQuestions(audience);
@@ -61,7 +63,7 @@ export default function NaskahBot() {
                     <span>{formattedTime}</span>
                 </div>
                 <button className="flex items-center gap-1 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-600 shadow-sm hover:bg-slate-50">
-                    7 hari terakhir
+                    {range}
                     <ChevronDown className="h-4 w-4 text-slate-400" />
                 </button>
             </div>
